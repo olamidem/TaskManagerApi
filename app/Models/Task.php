@@ -16,6 +16,7 @@ class Task extends Model
     protected $fillable = [
         'title',
         'is_done',
+        'project_id'
     ];
 
     protected $casts = [
@@ -27,7 +28,7 @@ class Task extends Model
         return $this->belongsTo(User::class, 'creator_id');
     }
 
-    public  function project(): BelongsTo
+    public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
     }
