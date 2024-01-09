@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('tasks', function (Blueprint $table) {
             //
+            $table->foreignId('project_id')->nullable()->constrained();
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('tasks', function (Blueprint $table) {
             //
+            $table->dropConstrainedForeignId('project_id');
         });
     }
 };
